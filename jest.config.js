@@ -1,5 +1,10 @@
 // eslint-disable-next-line
 module.exports = {
+    globals: {
+        'ts-jest': {
+            diagnostics: false, // Turn off diagnostics, because this leads to a 100% coverage score on Vue components
+        },
+    },
     moduleFileExtensions: [
         'js',
         'jsx',
@@ -24,7 +29,7 @@ module.exports = {
     ],
     transformIgnorePatterns: ['/node_modules/(?!jquery)'],
     modulePathIgnorePatterns: ['<rootDir>/coverage/'],
-    setupFiles: ['<rootDir>/test-env.ts'],
+    setupFiles: ['<rootDir>/test-env.js'],
     testURL: 'http://localhost/',
     collectCoverage: true,
     collectCoverageFrom: [
@@ -32,6 +37,6 @@ module.exports = {
         '!**/node_modules/**',
         '!**/tests/**',
         '!<rootDir>/shim-*.d.ts',
-        '!<rootDir>/test-env.ts'
+        '!<rootDir>/test-env.js'
     ],
 };
